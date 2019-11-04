@@ -41,6 +41,8 @@ data "template_file" "init_snippet" {
     init_prefix     = var.init_prefix
     init_suffix     = var.init_suffix
     log_prefix      = var.log_prefix
+
+    logic = "${file("${path.module}/logic.sh")}"
   }
 }
 
