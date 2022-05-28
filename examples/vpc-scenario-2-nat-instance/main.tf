@@ -107,7 +107,7 @@ resource "aws_route_table_association" "private_subnets" {
 
 # network route for private subnets ---> NAT for 0.0.0.0/0
 resource "aws_route" "nat" {
-  instance_id            = module.nat-instance.instance_ids[0]
+  instance_id            = module.nat-instance.network_interface_id[0]
   route_table_id         = aws_route_table.private_subnets.id
   destination_cidr_block = "0.0.0.0/0"
 }
